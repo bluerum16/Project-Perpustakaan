@@ -6,9 +6,9 @@ $pager->setSurroundCount(1);
 <?php if ($pager->getPageCount() > 1): ?>
 <nav aria-label="Simple pagination">
   <ul class="pagination justify-content-center mb-0">
-    <?php if ($pager->hasPrevious()): ?>
+    <?php if ($pager->hasPreviousPage()): ?>
       <li class="page-item">
-        <a class="page-link" href="<?= $pager->getPrevious() ?>" aria-label="Previous">
+        <a class="page-link" href="<?= $pager->getPreviousPage() ?>" aria-label="Previous">
           &laquo; Prev
         </a>
       </li>
@@ -25,9 +25,9 @@ $pager->setSurroundCount(1);
       <?php endif; ?>
     <?php endforeach; ?>
 
-    <?php if ($pager->hasNext()): ?>
+    <?php if ($pager->hasNextPage()): ?>
       <li class="page-item">
-        <a class="page-link" href="<?= $pager->getNext() ?>" aria-label="Next">
+        <a class="page-link" href="<?= $pager->getNextPage() ?>" aria-label="Next">
           Next &raquo;
         </a>
       </li>

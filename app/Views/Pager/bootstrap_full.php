@@ -8,7 +8,7 @@ $pager->setSurroundCount(2);
 <nav aria-label="Page navigation">
   <ul class="pagination justify-content-center mb-0">
     <!-- First -->
-    <?php if ($pager->hasPrevious()): ?>
+    <?php if ($pager->hasPreviousPage()): ?>
       <li class="page-item">
         <a class="page-link" href="<?= $pager->getFirst() ?>" aria-label="First">
           <span aria-hidden="true">&laquo;&laquo;</span>
@@ -19,9 +19,9 @@ $pager->setSurroundCount(2);
     <?php endif; ?>
 
     <!-- Previous -->
-    <?php if ($pager->hasPrevious()): ?>
+    <?php if ($pager->hasPreviousPage()): ?>
       <li class="page-item">
-        <a class="page-link" href="<?= $pager->getPrevious() ?>" aria-label="Previous">
+        <a class="page-link" href="<?= $pager->getPreviousPage() ?>" aria-label="Previous">
           <span aria-hidden="true">&laquo;</span>
         </a>
       </li>
@@ -39,9 +39,9 @@ $pager->setSurroundCount(2);
     <?php endforeach; ?>
 
     <!-- Next -->
-    <?php if ($pager->hasNext()): ?>
+    <?php if ($pager->hasNextPage()): ?>
       <li class="page-item">
-        <a class="page-link" href="<?= $pager->getNext() ?>" aria-label="Next">
+        <a class="page-link" href="<?= $pager->getNextPage() ?>" aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
         </a>
       </li>
@@ -50,7 +50,7 @@ $pager->setSurroundCount(2);
     <?php endif; ?>
 
     <!-- Last -->
-    <?php if ($pager->hasNext()): ?>
+    <?php if ($pager->hasNextPage()): ?>
       <li class="page-item">
         <a class="page-link" href="<?= $pager->getLast() ?>" aria-label="Last">
           <span aria-hidden="true">&raquo;&raquo;</span>
