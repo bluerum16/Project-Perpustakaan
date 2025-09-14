@@ -20,30 +20,42 @@ class Sekolah extends BaseController
     {
         $model = new \App\Models\SekolahModel();
 
-        $page    = $this->request->getVar('page_sekolah') ?? 1;
         $perPage = 10;
+        $page    = (int) ($this->request->getVar('page_sekolah') ?? 1);
 
-        // ambil parameter sort & order
-        $sort  = $this->request->getVar('sort') ?? 'id_sekolah';
-        $order = $this->request->getVar('order') ?? 'asc';
+        // Ambil parameter pencarian & sorting
+        $q     = trim($this->request->getGet('q') ?? '');
+        $sort  = $this->request->getGet('sort') ?? 'id_sekolah';
+        $order = $this->request->getGet('order') ?? 'asc';
 
-        // validasi kolom sort agar aman
+        // Whitelist kolom sorting untuk keamanan
         $allowedSort = ['id_sekolah','nama_sekolah','email','no_telfon'];
         if (! in_array($sort, $allowedSort)) {
             $sort = 'id_sekolah';
         }
+        $order = strtolower($order) === 'desc' ? 'desc' : 'asc';
 
-        // ambil data dengan sorting
+        // Jika ada query pencarian, tambahkan kondisi LIKE (nama/email/no_telfon)
+        if ($q !== '') {
+            $model = $model->groupStart()
+                        ->like('nama_sekolah', $q)
+                        ->orLike('email', $q)
+                        ->orLike('no_telfon', $q)
+                        ->groupEnd();
+        }
+
+        // Ambil data dengan sorting & paginate
         $data['sekolah'] = $model->orderBy($sort, $order)
                                 ->paginate($perPage, 'sekolah');
 
-        $data['pager']       = $model->pager;
+        $data['pager'] = $model->pager;
         $data['currentPage'] = $page;
-        $data['perPage']     = $perPage;
-        $data['title']       = 'Daftar Sekolah';
+        $data['perPage'] = $perPage;
+        $data['title'] = 'Daftar Sekolah';
 
-        // untuk indikator sort di view
-        $data['sort']  = $sort;
+        // Kirim parameter ke view supaya form & link dapat mempertahankannya
+        $data['q'] = $q;
+        $data['sort'] = $sort;
         $data['order'] = $order;
 
         return view('sekolah/index', $data);
