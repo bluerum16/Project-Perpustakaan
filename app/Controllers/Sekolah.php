@@ -18,22 +18,33 @@ class Sekolah extends BaseController
     // READ: daftar
     public function index()
     {
-        $perPage = 10; // jumlah baris per halaman, ubah sesuai kebutuhan
+        $model = new \App\Models\SekolahModel();
 
-        // Ambil data terpaginate; 'sekolah' adalah "group" untuk pager
-        $data['sekolah'] = $this->model
-                                ->orderBy('id_sekolah', 'DESC')
+        $page    = $this->request->getVar('page_sekolah') ?? 1;
+        $perPage = 10;
+
+        // ambil parameter sort & order
+        $sort  = $this->request->getVar('sort') ?? 'id_sekolah';
+        $order = $this->request->getVar('order') ?? 'asc';
+
+        // validasi kolom sort agar aman
+        $allowedSort = ['id_sekolah','nama_sekolah','email','no_telfon'];
+        if (! in_array($sort, $allowedSort)) {
+            $sort = 'id_sekolah';
+        }
+
+        // ambil data dengan sorting
+        $data['sekolah'] = $model->orderBy($sort, $order)
                                 ->paginate($perPage, 'sekolah');
 
-        // Pager object untuk dipakai di view
-        $data['pager'] = $this->model->pager;
-
-        // ambil halaman sekarang untuk perhitungan nomor urut
-        $page = (int) ($this->request->getVar('page_sekolah') ?? 1);
+        $data['pager']       = $model->pager;
         $data['currentPage'] = $page;
-        $data['perPage'] = $perPage;
+        $data['perPage']     = $perPage;
+        $data['title']       = 'Daftar Sekolah';
 
-        $data['title'] = 'Daftar Sekolah';
+        // untuk indikator sort di view
+        $data['sort']  = $sort;
+        $data['order'] = $order;
 
         return view('sekolah/index', $data);
     }
@@ -136,7 +147,7 @@ class Sekolah extends BaseController
     public function delete($id = null)
     {
         // sebaiknya delete dilakukan via POST untuk keamanan
-        if ($this->request->getMethod() !== 'post') {
+        if ($this->request->getMethod() !== 'POST') {
             return redirect()->to(site_url('sekolah'));
         }
 

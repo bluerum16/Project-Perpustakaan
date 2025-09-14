@@ -51,14 +51,40 @@
         <table class="table table-hover align-middle">
           <thead class="table-light">
             <tr>
-              <th style="width:60px">No.</th>
-              <th>Nama Sekolah</th>
-              <th>Email</th>
-              <th>No. Telp</th>
-              <th style="width:220px">Aksi</th>
+                <th style="width:60px">No.</th>
+
+                <!-- kolom sortable -->
+                <th>
+                <a href="<?= site_url('sekolah?sort=nama_sekolah&order='.(($sort=='nama_sekolah' && $order=='asc')?'desc':'asc')) ?>" class="text-decoration-none text-dark">
+                    Nama Sekolah
+                    <?php if ($sort=='nama_sekolah'): ?>
+                    <i class="bi bi-caret-<?= $order=='asc'?'up':'down' ?>-fill"></i>
+                    <?php endif; ?>
+                </a>
+                </th>
+
+                <th>
+                <a href="<?= site_url('sekolah?sort=email&order='.(($sort=='email' && $order=='asc')?'desc':'asc')) ?>" class="text-decoration-none text-dark">
+                    Email
+                    <?php if ($sort=='email'): ?>
+                    <i class="bi bi-caret-<?= $order=='asc'?'up':'down' ?>-fill"></i>
+                    <?php endif; ?>
+                </a>
+                </th>
+
+                <th>
+                <a href="<?= site_url('sekolah?sort=no_telfon&order='.(($sort=='no_telfon' && $order=='asc')?'desc':'asc')) ?>" class="text-decoration-none text-dark">
+                    No. Telp
+                    <?php if ($sort=='no_telfon'): ?>
+                    <i class="bi bi-caret-<?= $order=='asc'?'up':'down' ?>-fill"></i>
+                    <?php endif; ?>
+                </a>
+                </th>
+
+                <th style="width:220px">Aksi</th>
             </tr>
-          </thead>
-          <tbody>
+            </thead>
+
             <?php if (! empty($sekolah)): ?>
               <?php $no = ($currentPage - 1) * $perPage; ?>
               <?php foreach ($sekolah as $s): ?>
@@ -95,7 +121,7 @@
             $pager->links() akan mengeluarkan markup default CI Pager.
             Jika ingin full Bootstrap styling, buat custom Pager template di app/Views/Pager/
           -->
-          <?= $pager->links('sekolah', 'default_full') ?>
+          <?= $pager->links('sekolah', 'bootstrap_full') ?>
         </nav>
       <?php endif; ?>
 
