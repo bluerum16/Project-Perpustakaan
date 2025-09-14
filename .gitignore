@@ -39,3 +39,6 @@ node_modules/
 
 # Composer lock file optional
 # composer.lock
+
+# Abaikan README CodeIgniter
+README.md
