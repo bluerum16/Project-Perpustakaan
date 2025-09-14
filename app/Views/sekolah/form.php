@@ -20,6 +20,10 @@
       </div>
 
       <!-- Tampilkan error validation -->
+      <?php 
+      if (session()->getFlashdata('validation')) 
+          $validation = session()->getFlashdata('validation');
+      ?>
       <?php if (isset($validation) && $validation->getErrors()): ?>
         <div class="alert alert-danger">
           <ul class="mb-0">

@@ -83,7 +83,7 @@ class Sekolah extends BaseController
         ];
 
         if (! $this->validate($rules)) {
-            return redirect()->back()->withInput();
+            return redirect()->back()->withInput()->with('validation', $this->validation);
         }
 
         $this->model->save([
@@ -137,7 +137,7 @@ class Sekolah extends BaseController
         ];
 
         if (! $this->validate($rules)) {
-            return redirect()->back()->withInput();
+            return redirect()->back()->withInput()->with('validation', $this->validation);
         }
 
         // pastikan data ada
