@@ -1,0 +1,41 @@
+# === CodeIgniter 4 Typical .gitignore ===
+
+# Composer vendor directory
+/vendor/
+
+# Environment file (berisi konfigurasi sensitif)
+.env
+
+# Environment file backup
+.env.*
+
+# Logs
+/writable/logs/*
+
+# Cache files
+/writable/cache/*
+
+# Session files
+/writable/session/*
+
+# Uploads (kalau mau disimpan lokal, bukan di repo)
+#/writable/uploads/*
+
+# User-generated files
+/public/uploads/
+
+# PHPStorm / VSCode / editor stuff
+.idea/
+.vscode/
+
+# Mac OS Finder files
+.DS_Store
+
+# PHP error logs
+*.log
+
+# Node modules if you have front-end build
+node_modules/
+
+# Composer lock file optional
+# composer.lock
