@@ -106,7 +106,7 @@
                 </a>
               </th>
 
-              <th style="width:250px">Aksi</th>
+              <th style="width:26%">Aksi</th>
             </tr>
           </thead>
           <tbody>
