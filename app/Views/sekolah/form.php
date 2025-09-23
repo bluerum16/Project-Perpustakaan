@@ -18,7 +18,7 @@
           <i class="bi bi-arrow-left"></i> Kembali
         </a>
       </div>
-Test Commit Papa
+
       <!-- Tampilkan error validation -->
       <?php 
       if (session()->getFlashdata('validation')) 
@@ -49,15 +49,15 @@ Test Commit Papa
         </div>
 
         <div class="col-md-6">
-          <label class="form-label">Email <span class="text-danger">*</span></label>
+          <label class="form-label">Email</label>
           <input type="email" name="email" class="form-control" maxlength="254"
-                 value="<?= old('email', $sekolah['email'] ?? '') ?>" required>
+                 value="<?= old('email', $sekolah['email'] ?? '') ?>">
         </div>
 
         <div class="col-md-6">
-          <label class="form-label">No. Telepon <span class="text-danger">*</span></label>
+          <label class="form-label">No. Telepon</label>
           <input type="text" name="no_telfon" class="form-control" maxlength="20"
-                 value="<?= old('no_telfon', $sekolah['no_telfon'] ?? '') ?>" required>
+                 value="<?= old('no_telfon', $sekolah['no_telfon'] ?? '') ?>">
         </div>
 
         <div class="col-12 d-flex gap-2">
