@@ -42,4 +42,24 @@ class BukuModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];*/
+
+    /**
+     * Ambil semua buku beserta kategori nya
+     */
+    public function getBukuWithKategori()
+    {
+        return $this->select('buku.*, kategori_buku.nama_kategori')
+                    ->join('kategori_buku', 'kategori_buku.id_kategori = buku.id_kategori', 'left');
+    }
+
+    /**
+     * Ambil detail buku by ID beserta kategori
+     */
+    public function getDetailBuku($id)
+    {
+        return $this->select('buku.*, kategori_buku.nama_kategori')
+                    ->join('kategori_buku', 'kategori_buku.id_kategori = buku.id_kategori', 'left')
+                    ->where('buku.id_buku', $id)
+                    ->first();
+    }
 }

@@ -21,9 +21,10 @@ $routes->group('buku', function($routes){
     $routes->get('', 'buku::index');
     $routes->get('create', 'Buku::create');
     $routes->post('store', 'Buku::store');
+    $routes->get('show/(:num)', 'Buku::show/$1');
     $routes->get('edit/(:num)', 'Buku::edit/$1');
     $routes->post('update/(:num)', 'Buku::update/$1');
-    $routes->get('delete/(:num)', 'Buku::delete/$1');
+    $routes->post('delete/(:num)', 'Buku::delete/$1');
 });
 
 $routes->get('siswa', 'Siswa::create');
