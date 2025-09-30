@@ -21,6 +21,7 @@
           <a href="<?= site_url('sekolah/create') ?>" class="btn btn-success">
             <i class="bi bi-plus-lg"></i> Tambah Sekolah
           </a>
+          <a href="<?= site_url('/') ?>" class="btn btn-sm btn-outline-secondary">Kembali</a>
         </div>
       </div>
 

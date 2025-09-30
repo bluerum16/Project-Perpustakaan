@@ -24,7 +24,7 @@ class Siswa extends BaseController
         $password = $this->request->getPost('password');
 
         
-        return redirect()->to('/buku');
+        return redirect()->to('/');
     }
     
 };

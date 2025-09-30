@@ -140,7 +140,7 @@ class buku extends BaseController
 
         return view('buku/detail', [
             'buku' => $row,
-            'title' => 'Detail buku'
+            'title' => 'Detail Buku'
         ]);
     }
 
@@ -154,7 +154,7 @@ class buku extends BaseController
         $kategoriModel = new KategoriModel();
 
         return view('buku/form', [
-            'title' => 'Edit buku',
+            'title' => 'Edit Buku',
             'action' => site_url("buku/update/{$id}"),
             'method' => 'post',
             'buku' => $row,
