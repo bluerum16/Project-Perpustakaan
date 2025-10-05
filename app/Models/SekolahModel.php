@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class SekolahModel extends Model
+class SekolahModel extends BaseAuditModel
 {
     protected $table            = 'sekolah';
     protected $primaryKey       = 'id_sekolah';

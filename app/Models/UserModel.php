@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class UserModel extends BaseAuditModel
 {
     protected $table            = 'user_login';
     protected $primaryKey       = 'id_user';

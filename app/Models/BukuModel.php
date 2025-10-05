@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class BukuModel extends Model
+class BukuModel extends BaseAuditModel
 {
     protected $table      = 'buku';
     protected $primaryKey = 'id_buku';
