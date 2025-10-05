@@ -81,7 +81,7 @@
               ?>
 
               <th>
-                <a href="<?= esc($build_sort_url('Nama User')) ?>" class="text-decoration-none text-dark">
+                <a href="<?= esc($build_sort_url('username')) ?>" class="text-decoration-none text-dark">
                   Nama User
                   <?php if (($sort ?? '') == 'username'): ?>
                     <i class="bi bi-caret-<?= ($order ?? '') == 'asc' ? 'up' : 'down' ?>-fill"></i>

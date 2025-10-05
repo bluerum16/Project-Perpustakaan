@@ -42,5 +42,10 @@ $routes->group('user', function($routes){
     $routes->post('changepassword', 'User::changepassword', ['filter' => 'auth']);
 });
 
+$routes->group('auditlog', function($routes){
+    $routes->get('', 'AuditLog::index', ['filter' => 'auth']);
+    $routes->get('detail/(:num)', 'AuditLog::detail/$1', ['filter' => 'auth']);
+});
+
 $routes->get('siswa', 'Siswa::create');
 $routes->post('siswa/login', 'Siswa::login');

@@ -46,6 +46,9 @@
             <li class="nav-item">
               <a class="nav-link" href="<?= site_url('user') ?>">Daftar User</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<?= site_url('auditlog') ?>">Audit Logs</a>
+            </li>
           </ul>
 
           <!-- Right: user info -->
