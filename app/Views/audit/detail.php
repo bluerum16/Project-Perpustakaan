@@ -42,7 +42,7 @@
     </div>
 
     <!-- View 1: Table Key-Value -->
-    <div id="tableView" class="mt-3">
+    <div id="tableView" class="mt-3" style="display: none;">
         <h4>Table Comparison</h4>
         <table class="table table-bordered table-striped">
             <thead class="table-light">
@@ -69,7 +69,7 @@
     </div>
 
     <!-- View 2: GitHub Diff Side-by-Side -->
-    <div id="diffView" class="mt-3" style="display: none;">
+    <div id="diffView" class="mt-3">
         <h4>Side-by-Side GitHub Diff</h4>
         <table class="diff-table table-sm">
             <thead class="table-light">
