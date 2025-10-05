@@ -50,7 +50,7 @@
 
         <div class="col-md-6">
           <label class="form-label">Email <span class="text-danger">*</span></label>
-          <input type="email" name="email" class="form-control" maxlength="254"
+          <input type="text" name="email" class="form-control" maxlength="254"
                  value="<?= old('email', $sekolah['email'] ?? '') ?>" required>
         </div>
 
