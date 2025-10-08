@@ -50,15 +50,15 @@
         </div>
 
         <div class="col-md-6">
-          <label class="form-label">Email</label>
-          <input type="email" name="email" class="form-control" maxlength="254"
-                 value="<?= old('email', $sekolah['email'] ?? '') ?>">
+          <label class="form-label">Email <span class="text-danger">*</span></label>
+          <input type="text" name="email" class="form-control" maxlength="254"
+                 value="<?= old('email', $sekolah['email'] ?? '') ?>" required>
         </div>
 
         <div class="col-md-6">
-          <label class="form-label">No. Telepon</label>
+          <label class="form-label">No. Telepon <span class="text-danger">*</span></label>
           <input type="text" name="no_telfon" class="form-control" maxlength="20"
-                 value="<?= old('no_telfon', $sekolah['no_telfon'] ?? '') ?>">
+                 value="<?= old('no_telfon', $sekolah['no_telfon'] ?? '') ?>" required>
         </div>
 
         <div class="col-12 d-flex gap-2">

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class KategoriModel extends Model
+class KategoriModel extends BaseAuditModel
 {
     protected $table      = 'kategori_buku';
     protected $primaryKey = 'id_kategori';

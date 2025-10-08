@@ -44,6 +44,12 @@
             <li class="nav-item">
               <a class="nav-link" href="<?= site_url('buku') ?>">Daftar Buku</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<?= site_url('user') ?>">Daftar User</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<?= site_url('auditlog') ?>">Audit Logs</a>
+            </li>
           </ul>
 
           <!-- Right: user info -->
@@ -51,16 +57,17 @@
             <!-- Example small user card -->
             <div class="dropdown">
               <a class="d-flex align-items-center text-decoration-none dropdown-toggle" href="#" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://ui-avatars.com/api/?name=FI&background=0D6EFD&color=fff&size=128" alt="avatar" class="avatar me-2">
+                <img src="https://ui-avatars.com/api/?name=<?=esc(session()->get('username')); ?>&background=0D6EFD&color=fff&size=128" alt="avatar" class="avatar me-2">
                 <div class="d-none d-sm-block">
-                  <div class="fw-semibold">Fazli Irham</div>
-                  <div class="text-muted small">Administrator</div>
+                  <div class="fw-semibold"><?=esc(session()->get('username')); ?></div>
+                  <div class="text-muted small"><?=strtoupper(esc(session()->get('role'))); ?></div>
                 </div>
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                <li><a class="dropdown-item" href="#profile">Profil</a></li>
+                <li><a class="dropdown-item" href="<?= site_url('user/show/'.esc(session()->get('id_user'))) ?>">Profil</a></li>
+                <li><a class="dropdown-item" href="<?= site_url('user/changepassword') ?>">Change Password</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item text-danger" href="<?= site_url('siswa') ?>">Logout</a></li>
+                <li><a class="dropdown-item text-danger" href="<?= site_url('user/logout') ?>">Logout</a></li>
               </ul>
             </div>
           </div>
@@ -104,7 +111,7 @@
             <div class="card card-menu h-100 shadow-sm">
               <div class="card-body">
                 <h5 class="card-title">Daftar Buku</h5>
-                <p class="card-text">Kelola katalog buku, stok, dan peminjaman.</p>
+                <p class="card-text">Kelola katalog buku, stok.</p>
               </div>
             </div>
           </a>

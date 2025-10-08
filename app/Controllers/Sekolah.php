@@ -77,9 +77,29 @@ class Sekolah extends BaseController
     public function store()
     {
         $rules = [
-            'nama_sekolah' => 'required|min_length[3]|max_length[150]',
-            'email' => 'permit_empty|valid_email|max_length[254]',
-            'no_telfon' => 'permit_empty|max_length[20]'
+            'nama_sekolah' => [
+                'rules'  => 'required|min_length[3]|max_length[100]',
+                'errors' => [
+                    'required'   => 'Nama sekolah wajib diisi',
+                    'min_length' => 'Nama sekolah minimal 3 karakter',
+                    'max_length' => 'Nama sekolah maksimal 100 karakter',
+                ]
+            ],
+            'email' => [
+                'rules'  => 'required|valid_email|max_length[250]',
+                'errors' => [
+                    'required'    => 'Email wajib diisi',
+                    'valid_email' => 'Email tidak valid',
+                    'max_length'  => 'Email maksimal 250 karakter',
+                ]
+            ],
+            'no_telfon' => [
+                'rules'  => 'required|max_length[20]',
+                'errors' => [
+                    'required'   => 'No Telepon wajib diisi',
+                    'max_length' => 'Password maksimal 20 karakter',
+                ]
+            ],
         ];
 
         if (! $this->validate($rules)) {
@@ -131,9 +151,29 @@ class Sekolah extends BaseController
     public function update($id = null)
     {
         $rules = [
-            'nama_sekolah' => 'required|min_length[3]|max_length[150]',
-            'email' => 'permit_empty|valid_email|max_length[254]',
-            'no_telfon' => 'permit_empty|max_length[20]'
+            'nama_sekolah' => [
+                'rules'  => 'required|min_length[3]|max_length[100]',
+                'errors' => [
+                    'required'   => 'Nama sekolah wajib diisi',
+                    'min_length' => 'Nama sekolah minimal 3 karakter',
+                    'max_length' => 'Nama sekolah maksimal 100 karakter',
+                ]
+            ],
+            'email' => [
+                'rules'  => 'required|valid_email|max_length[250]',
+                'errors' => [
+                    'required'    => 'Email wajib diisi',
+                    'valid_email' => 'Email tidak valid',
+                    'max_length'  => 'Email maksimal 250 karakter',
+                ]
+            ],
+            'no_telfon' => [
+                'rules'  => 'required|max_length[20]',
+                'errors' => [
+                    'required'   => 'No Telepon wajib diisi',
+                    'max_length' => 'Password maksimal 20 karakter',
+                ]
+            ],
         ];
 
         if (! $this->validate($rules)) {
