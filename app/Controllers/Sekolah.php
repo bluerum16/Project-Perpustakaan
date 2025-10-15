@@ -21,7 +21,7 @@ class Sekolah extends BaseController
         $model = new \App\Models\SekolahModel();
 
         $perPage = 10;
-        $page    = (int) ($this->request->getVar('page_sekolah') ?? 1);
+        $page    = (int) ($this->request->getVar('page_ sekolah') ?? 1);
 
         // Ambil parameter pencarian & sorting
         $q     = trim($this->request->getGet('q') ?? '');

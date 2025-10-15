@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class KategoriModel extends BaseAuditModel
+class KategoriModel extends Model
 {
     protected $table      = 'kategori_buku';
     protected $primaryKey = 'id_kategori';
@@ -12,9 +12,9 @@ class KategoriModel extends BaseAuditModel
     protected $useAutoIncrement = true;
 
     protected $returnType     = 'array';
-    protected $useSoftDeletes = true;
+    protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['id_kategori', 'nama_kategori'];
+    protected $allowedFields = ['id_kategori', 'nama_kategori', 'judul', 'keterangan'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

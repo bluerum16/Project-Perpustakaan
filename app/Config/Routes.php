@@ -49,3 +49,6 @@ $routes->group('auditlog', function($routes){
 
 $routes->get('siswa', 'Siswa::create');
 $routes->post('siswa/login', 'Siswa::login');
+$routes->get('kategori', 'kategoriBuku::index');
+$routes->get('kategori/create', 'kategoriBuku::create');
+$routes->post('kategori/create', 'KategoriBuku::create');
